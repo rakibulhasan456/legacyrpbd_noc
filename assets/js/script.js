@@ -17,13 +17,13 @@ const users = {
         password:"onizuka456",
         fullName:"Ryuujin Onizuka",
         designation:"Governor",
-        signature:"sign_ryuujin.png"
+        signature:"assets/img/sign_ryuujin.png"
     },
     "ishid":{
         password:"33vDtkg",
         fullName:"Ishid Lucrenze",
         designation:"Vice Governor",
-        signature:"sign_ishid.png"
+        signature:"assets/img/sign_ishid.png"
     }
 };
 
