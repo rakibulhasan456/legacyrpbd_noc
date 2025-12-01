@@ -1,0 +1,15 @@
+/* Disable text selection */
+
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Disable copy cursor */
+
+body {
+  cursor: default;
+}
+

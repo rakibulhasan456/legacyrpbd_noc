@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>legacyrpbd_noc</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/copy_restriction.css">
+    <link rel="stylesheet" href="assets/css/design.css">
+</head>
+
+<body><!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>San Andreas Governor's Office — NOC Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app center">
+        <div class="card" role="application">
+            <div class="card-header">
+                <div class="brand">SAN ANDREAS GOVERNOR'S OFFICE — NOC GENERATOR</div>
+                <div class="logged-as" id="loggedAs">Not logged in</div>
+            </div>
+
+            <div class="card-body">
+                <div class="panel">
+                    <div id="loginPanel">
+                        <h3>Login</h3>
+                        <div class="login-box">
+                            <label>Username</label>
+                            <input id="username" type="text" placeholder="username" autofocus />
+                            <label>Password</label>
+                            <input id="password" type="password" placeholder="password" />
+                            <div style="display:flex;gap:8px">
+                                <button id="loginBtn">Login</button>
+                                <button id="fillDemo" class="ghost">Demo</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="formPanel" class="hidden">
+                        <h3>Certificate Data</h3>
+                        <label>Date</label>
+                        <input id="nocDate" type="date" />
+
+                        <label>Full Name</label>
+                        <input id="fullName" type="text" placeholder="Full name of subject" />
+
+                        <label>Citizen ID</label>
+                        <input id="cid" type="text" placeholder="CID / State ID" />
+
+                        <label>Contact</label>
+                        <input id="contact" type="text" placeholder="Phone Number" />
+                        
+                        <label>Date of Birth</label>
+                        <input id="dob" type="date" />
+
+                        <label>Address</label>
+                        <textarea id="address" rows="3" placeholder="Address / Area"></textarea>
+
+                        <label>Purpose of NOC</label>
+                        <div class="purposes">
+                            <label><input type="checkbox" class="purposeChk" value="Hunting License" /> Hunting License</label>
+                            <label><input type="checkbox" class="purposeChk" value="Mining License" /> Mining License</label>
+                            <label><input type="checkbox" class="purposeChk" value="Weapon License" /> Weapon License</label>
+                            <label><input type="checkbox" class="purposeChk" value="Applying for Business" /> Applying for Business</label>
+                            <label><input type="checkbox" class="purposeChk" value="Employment Verification" /> Employment Verification</label>
+                        </div>
+
+                        <div style="margin-top:12px;display:flex;gap:8px">
+                            <button id="updatePreview">Update Preview</button>
+                            <button id="downloadPNG" class="ghost">Download PNG</button>
+                            <button id="logoutBtn" class="ghost">Logout</button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3>Preview (A4 Format)</h3>
+                    <div class="noc-preview" id="nocContainer">
+                        <img id="watermark" src="assets/img/watermark.png" alt="watermark" />
+
+                        <div class="noc-head">
+                            <div style="font-weight:800">SAN ANDREAS GOVERNOR'S OFFICE</div>
+                        </div>
+
+                        <div class="noc-body">
+                            <div style="text-align:center; margin-bottom: 25px;"> 
+                                <div style="font-weight:700; font-size:18px">NO OBJECTION CERTIFICATE (NOC)</div>
+                            </div>
+                            <div class="noc-date-row"> 
+                                <div class="muted">Date: <span id="pvDate">[DD/MM/YYYY]</span></div>
+                            </div>
+                            
+
+                            <div class="meta-block">
+                                <div class="noc-field"><strong>Name:</strong> <span id="pvName">[Full Name]</span></div>
+                                <div class="noc-field"><strong>Citizen ID:</strong> <span id="pvCID">[CID]</span></div>
+                                <div class="noc-field"><strong>Contact:</strong> <span id="pvContact">[Contact]</span></div>
+                                <div class="noc-field"><strong>Date of Birth:</strong> <span id="pvDOB">[DD/MM/YYYY]</span></div>
+                                <div class="noc-field"><strong>Address:</strong> <span id="pvAddress">[Address]</span></div>
+                            </div>
+
+                            <div class="noc-field" style="margin-top:20px">
+                                <strong>Purpose of NOC:</strong>
+                                <div id="pvPurposes" class="muted">[Purposes]</div>
+                            </div>
+
+                            <div style="margin-top:20px; margin-bottom: 40px; text-align: justify;">
+                                The Governor's Office confirms that the above-mentioned individual holds a valid and verified record within the State of San Andreas, and <b>their state activity log shows no violations or pending issues in the past 7 days</b>.<br><br>The individual is permitted to proceed with the stated purpose as long as it complies with all state laws and regulations.
+                            </div>
+
+                            <div class="footer-row">
+                                <div class="footer-col" style="text-align:left">
+                                    <div class="muted">Issued By:</div>
+                                    <div style="font-weight:700" id="issuerBlock">San Andreas<br>Governor's Office</div>
+                                </div>
+
+                                <div class="footer-col" style="text-align:center">
+                                    <img id="sealImg" class="seal" src="assets/img/seal.png" alt="seal" />
+                                </div>
+                                
+                                <div class="footer-col" style="text-align:right">
+                                    <div id="sigWrap">
+                                        <img id="signatureImg" class="signature" src="assets/img/sign_placeholder.png" alt="signature" />
+                                        <div id="issuerName" style="font-weight:700">[Issuer Name]</div>
+                                        <div id="issuerDesignation" class="muted">[Designation]</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="final-note">
+                            Note: This certificate is valid only for the purpose stated above and does not exempt the holder from any legal requirements or obligations under state regulations.
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/copy_restriction.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
