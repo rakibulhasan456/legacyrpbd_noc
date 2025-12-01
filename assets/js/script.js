@@ -138,7 +138,7 @@ document.getElementById('downloadPNG').addEventListener('click',()=>{
     container.style.background = '#fff';
 
     // The scale property is crucial for getting a high-resolution, readable image
-    html2canvas(container, {scale:3, useCORS:true, allowTaint:true}).then(canvas=>{
+    html2canvas(container, {scale:1, useCORS:true, allowTaint:true}).then(canvas=>{
         const link = document.createElement('a');
         link.download = `NOC_${Date.now()}.png`;
         link.href = canvas.toDataURL('image/png');
