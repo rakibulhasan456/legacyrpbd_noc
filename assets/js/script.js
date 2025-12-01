@@ -11,7 +11,7 @@ const users = {
         password:"demo123",
         fullName:"Your Name",
         designation:"Your Designation",
-        signature:"/assets/img/sign_placeholder.png"
+        signature:"assets/img/sign_placeholder.png"
     },
     "onizuka":{
         password:"onizuka456",
